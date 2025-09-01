@@ -4,4 +4,4 @@ metadata:
   labels:
     app: {{.Values.appName }}
     project: roboshop
-{{ - end }}
+{{- end }}
