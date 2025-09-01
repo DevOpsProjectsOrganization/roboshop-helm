@@ -1,0 +1,5 @@
+apiVersion: v2
+name: roboshop-helm
+description: A helm chart for roboshop application in kubernetes
+type: application
+version: 0.1.0
