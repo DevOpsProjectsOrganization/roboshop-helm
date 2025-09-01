@@ -5,11 +5,11 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      {{include "app.labels" | indent 4}}
+      {{include "app.labels" . | indent 4}}
   template:
     metadata:
       labels:
-        {{include "app.labels" | indent 4}}
+        {{include "app.labels" . | indent 4}}
     spec:
       containers:
         - name: {{ .Values.appName }}
