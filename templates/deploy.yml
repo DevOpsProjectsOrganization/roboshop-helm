@@ -1,21 +1,15 @@
 apiVersion: apps/v1
 kind: Deployment
-metadata:
-  name: {{.Values.appName }}
-  labels:
-    app: {{.Values.appName }}
-    project: roboshop
+  {{- template "app.metadata" . }}
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: {{.Values.appName }}
-      project: roboshop
+      {{include "app.labels" | indent 4}}
   template:
     metadata:
       labels:
-        app: {{ .Values.appName }}
-        project: roboshop
+        {{include "app.labels" | indent 4}}
     spec:
       containers:
         - name: {{ .Values.appName }}
