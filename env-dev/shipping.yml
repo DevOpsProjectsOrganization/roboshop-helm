@@ -1,0 +1,12 @@
+appName: shipping
+configMapData:
+  CART_ENDPOINT: "cart"
+  DB_HOST: "mysql-dev.sdevops.shop"
+  DB_TYPE: "mysql"
+  APP_GIT_URL: "https://github.com/roboshop-devops-project-v3/shipping"
+  DB_USER: "root"
+  DB_PASS: "RoboShop@1"
+
+service:
+  type: ClusterIP
+  port : 8080
