@@ -9,7 +9,7 @@ spec:
   template:
     metadata:
       labels:
-        {{include "app.labels" . | indent 4}}
+        {{include "app.labels" . | indent 5}}
     spec:
       containers:
         - name: {{ .Values.appName }}
