@@ -1,4 +1,4 @@
-{{- define "app.labels" }}
+{{- define "app.metadata" }}
 metadata:
   name: {{.Values.appName }}
   labels:
