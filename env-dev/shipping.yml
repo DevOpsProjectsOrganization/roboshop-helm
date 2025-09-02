@@ -1,6 +1,6 @@
 appName: shipping
 configMapData:
-  CART_ENDPOINT: "cart"
+  CART_ENDPOINT: "cart:8080"
   DB_HOST: "mysql-dev.sdevops.shop"
   DB_TYPE: "mysql"
   APP_GIT_URL: "https://github.com/roboshop-devops-project-v3/shipping"
