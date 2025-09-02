@@ -6,3 +6,11 @@ default:
 	helm upgrade -i shipping . -f env-dev/shipping.yml
 	helm upgrade -i payment . -f env-dev/payment.yml
 	helm upgrade -i frontend . -f env-dev/frontend.yml
+uninstall:
+	git pull
+	helm uninstall cart
+	helm uninstall catalogue
+	helm uninstall user
+	helm uninstall shipping
+	helm uninstall payment
+	helm uninstall frontend
