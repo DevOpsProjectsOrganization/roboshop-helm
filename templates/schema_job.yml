@@ -8,11 +8,16 @@ spec:
   template:
     spec:
       containers:
-        - name: schema-load
+          {{ range $job .Values.schema.jobs}}
+        - name: {{ $job | replace "/" "" | replace ".js" "" | replace ".sql" ""}}
           image: public.ecr.aws/w8x4g9h7/roboshop-v3/schema-load
+          env :
+            name : SCHEMA_FILE
+            value : {{$job}}
           envFrom:
             - configMapRef:
-                name: {{.Values.appName}}
+                name: {{ $.Values.appName}}
+          {{ end }}
       restartPolicy: Never
   backoffLimit: 0
   {{ end }}
