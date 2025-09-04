@@ -14,6 +14,6 @@ service:
 schema:
   enabled : true
   jobs:
-    - db.schema.sql
-    - db.app-user.sql
-    - db.master-data.sql
+    - db/schema.sql
+    - db/app-user.sql
+    - db/master-data.sql
