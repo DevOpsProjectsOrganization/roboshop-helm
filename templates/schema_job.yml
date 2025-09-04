@@ -8,15 +8,15 @@ spec:
   template:
     spec:
       containers:
-      {{- range .Values.schema.jobs}}
-        - name: {{ . | replace ".js" "" | replace ".sql" ""}}
-          image: public.ecr.aws/w8x4g9h7/roboshop-v3/schema-load
-          env :
-            name : SCHEMA_FILE
-            value : {{.}}
-          envFrom:
-            - configMapRef:
-                name: {{ $.Values.appName}}
+      {{- range .Values.schema.jobs }}
+      - name: {{ . | replace ".js" "" | replace ".sql" ""}}
+        image: public.ecr.aws/w8x4g9h7/roboshop-v3/schema-load
+        env:
+        - name: SCHEMA_FILE
+          value: {{ . }}
+        envFrom:
+        - configMapRef:
+            name: {{ $.Values.appName }}
       {{- end }}
       restartPolicy: Never
   backoffLimit: 0
