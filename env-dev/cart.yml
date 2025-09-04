@@ -7,3 +7,6 @@ configMapData:
 service:
   type: ClusterIP
   port : 8080
+
+schema:
+  enabled : false
