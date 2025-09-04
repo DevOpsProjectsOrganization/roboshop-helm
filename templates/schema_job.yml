@@ -8,7 +8,7 @@ spec:
   template:
     spec:
       containers:
-      {{- with .Values.schema.jobs}}
+      {{- range .Values.schema.jobs}}
         - name: {{ . | replace ".js" "" | replace ".sql" ""}}
           image: public.ecr.aws/w8x4g9h7/roboshop-v3/schema-load
           env :
