@@ -8,12 +8,12 @@ spec:
   template:
     spec:
       containers:
-          {{ range $job .Values.schema.jobs}}
-        - name: {{ $job | replace "/" "" | replace ".js" "" | replace ".sql" ""}}
+          {{ range .Values.schema.jobs}}
+        - name: {{ . | replace "/" "" | replace ".js" "" | replace ".sql" ""}}
           image: public.ecr.aws/w8x4g9h7/roboshop-v3/schema-load
           env :
             name : SCHEMA_FILE
-            value : {{$job}}
+            value : {{.}}
           envFrom:
             - configMapRef:
                 name: {{ $.Values.appName}}
