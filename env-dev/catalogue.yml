@@ -14,4 +14,4 @@ service:
 schema:
   enabled : true
   jobs:
-    - db/master-data.js
+    - master-data.js
