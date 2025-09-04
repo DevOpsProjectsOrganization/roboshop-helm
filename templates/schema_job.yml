@@ -19,5 +19,4 @@ spec:
             name: {{ $.Values.appName }}
       {{ end }}
       restartPolicy: Never
-  backoffLimit: 0
   {{ end }}
