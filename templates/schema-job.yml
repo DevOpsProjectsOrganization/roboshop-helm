@@ -1,4 +1,3 @@
-# schema load job for catalogue 
 {{- if .Values.schema.enabled }}
 {{- range $job:= $.Values.schema.jobs }}
 apiVersion: batch/v1
