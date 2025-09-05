@@ -1,5 +1,0 @@
- resources:
-            limits:
-              memory: "512Mi"  # This is the value to increase
-            requests:
-              memory: "512Mi" 
