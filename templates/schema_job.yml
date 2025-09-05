@@ -1,6 +1,6 @@
 # schema load job for catalogue 
 {{- if .Values.schema.enabled }}
-{{- range .Values.schema.jobs }}
+{{- range $job:= .Values.schema.jobs }}
 apiVersion: batch/v1
 kind: Job
 metadata:
@@ -9,17 +9,17 @@ spec:
   template:
     spec:
       containers: 
-        - name: {{ . | replace ".sql" "" | replace ".js" "" }}
+        - name: {{ $job | replace ".sql" "" | replace ".js" "" }}
           image: public.ecr.aws/w8x4g9h7/roboshop-v3/schema-load
           env:
             - name: SCHEMA_FILE
-              value: "db/{{ . }}"
+              value: "db/{{ $job }}"
           envFrom:
             - configMapRef: 
               name: {{ $.Values.appName }}
          
       
-      restartPolicy: Always
+      restartPolicy: OnFailure
 ---
 {{- end }}
 {{- end }}
