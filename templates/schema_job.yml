@@ -19,9 +19,9 @@ spec:
               name: {{ $.Values.appName }}
           resources:
             limits:
-              memory: "512Mi"  
+              memory: "2Gi"  
             requests:
-              memory: "512Mi"   
+              memory: "2Gi"   
       
       restartPolicy: Never
 ---
