@@ -6,12 +6,9 @@ configMapData:
   DB_PASS       : "RoboShop@1"
   DB_TYPE       : "mysql"
   APP_GIT_URL   : "https://github.com/roboshop-devops-project-v3/shipping"
-  DB_NAME       : shipping
-
 service:
   type: ClusterIP
   port: 8080
-
 schema:
   enabled: true
   jobs:

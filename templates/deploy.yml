@@ -14,7 +14,7 @@ spec:
       containers:
         - name: {{ .Values.appName }}
           image: public.ecr.aws/w8x4g9h7/roboshop-v3/{{ .Values.appName }}
-          imagePullPoilicy : Always
+          imagePullPolicy : Always
           envFrom:
             - configMapRef:
                 name: {{ .Values.appName }}
