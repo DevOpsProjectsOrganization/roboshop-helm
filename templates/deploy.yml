@@ -1,6 +1,6 @@
 apiVersion: apps/v1
 kind: Deployment
-  {{- template "app.metadata" . }}
+{{- template "app.metadata" . }}
 spec:
   replicas: 1
   selector:
@@ -32,6 +32,6 @@ spec:
             periodSeconds: 5
           resources:
             limits:
-              memory: "5Gi"  
+              memory: "512Mi"  
             requests:
-              memory: "5Gi"  
+              memory: "256Msi"  
