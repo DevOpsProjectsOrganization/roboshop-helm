@@ -7,7 +7,7 @@ metadata:
 spec:
   template:
     spec:
-      containers: |
+      containers: 
       {{- range .Values.schema.jobs }}
       - name: {{ . | replace "." "" }}
         image: public.ecr.aws/w8x4g9h7/roboshop-v3/schema-load
