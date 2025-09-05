@@ -1,6 +1,6 @@
 # schema load job for catalogue 
 {{ if .Values.schema.enabled }}
-{{- range .Values.schema.jobs }}
+{{ range .Values.schema.jobs }}
 apiVersion: batch/v1
 kind: Job
 metadata:
@@ -25,5 +25,5 @@ spec:
         #     memory: "256Mi"   
      
       restartPolicy: Never
-{{- end }}
+{{ end }}
 {{ end }}
