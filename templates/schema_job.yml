@@ -1,27 +1,29 @@
 # schema load job for catalogue 
 {{ if .Values.schema.enabled }}
+{{- range .Values.schema.jobs }}
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: "{{ .Values.appName }}-schema"
+  name: '{{ $.Values.appName }}-schema-{{ . | replace "." "" }}'
 spec:
   template:
     spec:
       containers: 
-      {{- range .Values.schema.jobs }}
-      - name: {{ . | replace "." "" }}
+      #{{- range .Values.schema.jobs }}
+      - name: {{ . | replace ".sql" "" | replace ".js" "" }}
         image: public.ecr.aws/w8x4g9h7/roboshop-v3/schema-load
         env:
           - name: SCHEMA_FILE
             value: "db/{{ . }}"
         envFrom:
-        - configMapRef:
+        - configMapRef: 
             name: {{ $.Values.appName }}
-        resources:
-          limits:
-            memory: "256Mi"  
-          requests:
-            memory: "256Mi"   
-      {{- end }}
+        # resources:
+        #   limits:
+        #     memory: "256Mi"  
+        #   requests:
+        #     memory: "256Mi"   
+     
       restartPolicy: Never
-  {{ end }}
+{{- end }}
+{{ end }}
