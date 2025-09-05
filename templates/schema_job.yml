@@ -17,7 +17,7 @@ spec:
               value: "db/{{ $job }}"
           envFrom:
             - configMapRef: 
-              name: {{ $.Values.appName }}
+                name: {{ $.Values.appName }}
       {{- end }} 
       restartPolicy: OnFailure
 ---
