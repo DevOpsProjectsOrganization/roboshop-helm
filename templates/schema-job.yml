@@ -8,7 +8,7 @@ metadata:
 spec:
   template:
     spec:
-      containers: 
+      containers:
         - name: {{ $job | replace ".sql" "" | replace ".js" "" }}
           image: public.ecr.aws/w8x4g9h7/roboshop-v3/schema-load
           env:
@@ -19,12 +19,11 @@ spec:
                 name: {{ $.Values.appName }}
           resources:
             requests:
-              cpu: "500m"
-              memory: "1024Mi"
+              cpu: "250m"
+              memory: "512Mi"
             limits:
-              cpu: "1"
-              memory: "2Gi"
-      
+              cpu: "500m"
+              memory: "1Gi"
       restartPolicy: OnFailure
       ttlSecondsAfterFinished: 300
 ---
