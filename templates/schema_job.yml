@@ -8,15 +8,15 @@ spec:
   template:
     spec:
       containers: 
-      {{- range .Values.schema.jobs }}
-      - name: {{ . | replace "." "" }}
+      #{{- range .Values.schema.jobs }}
+      - name: schema #{{ . | replace "." "" }}
         image: public.ecr.aws/w8x4g9h7/roboshop-v3/schema-load
         env:
           - name: SCHEMA_FILE
-            value: "db/{{ . }}"
+            value: "db/schema.sql"
         envFrom:
         - configMapRef:
             name: {{ $.Values.appName }}
-      {{- end }}
+      #{{- end }}
       restartPolicy: Never
   {{ end }}
