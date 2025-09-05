@@ -34,4 +34,4 @@ spec:
             limits:
               memory: "512Mi"  
             requests:
-              memory: "256Msi"  
+              memory: "256Mi"  
