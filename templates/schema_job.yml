@@ -17,11 +17,7 @@ spec:
           envFrom:
             - configMapRef: 
               name: {{ $.Values.appName }}
-          resources:
-            limits:
-              memory: "2Gi"  
-            requests:
-              memory: "2Gi"   
+         
       
       restartPolicy: Never
 ---

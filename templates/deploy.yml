@@ -30,3 +30,8 @@ spec:
               port: {{.Values.service.port}}
             initialDelaySeconds: 20
             periodSeconds: 5
+          resources:
+            limits:
+              memory: "5Gi"  
+            requests:
+              memory: "5Gi"  
