@@ -29,3 +29,8 @@ spec:
               port: {{.Values.service.port}}
             initialDelaySeconds: 3
             periodSeconds: 3
+          resources:
+            limits:
+              memory: "256Mi"  # This is the value to increase
+            requests:
+              memory: "128Mi"  # This is the value to increase as well
