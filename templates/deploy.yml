@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
         - name: {{ .Values.appName }}
-          image: public.ecr.aws/w8x4g9h7/roboshop-v3/{{ .Values.appName }}
+          image: 533567530972.dkr.ecr.us-east-1.amazonaws.com/{{ .Values.appName }}:{{ .Values.imageTag }}
           imagePullPolicy : Always
           envFrom:
             - configMapRef:
