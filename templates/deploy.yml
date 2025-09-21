@@ -21,7 +21,7 @@ spec:
           readinessProbe:
             httpGet:
               path: /health
-              port: {{.Values.service.port}}
+              port: {{ .Values.service.port }}
             initialDelaySeconds: 30
             periodSeconds: 5
             timeoutSeconds: 2
@@ -29,7 +29,7 @@ spec:
           livenessProbe:
             httpGet:
               path: /health
-              port: {{.Values.service.port}}
+              port: {{ .Values.service.port }}
             initialDelaySeconds: 60
             periodSeconds: 5
             timeoutSeconds: 2
