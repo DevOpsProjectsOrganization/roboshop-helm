@@ -1,44 +1,38 @@
 apiVersion: apps/v1
 kind: Deployment
-{{- template "app.metadata" . }}
+  {{- template "app.metadata" . }}
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
-{{include "app.labels" . | indent 6}}
+{{ include "app.labels" . | indent 6 }}
   template:
     metadata:
       labels:
-{{include "app.labels" . | indent 8}}
+{{ include "app.labels" . | indent 8 }}
     spec:
       containers:
-        - name: {{ .Values.appName }}
-          image: 533567530972.dkr.ecr.us-east-1.amazonaws.com/{{ .Values.appName }}:{{ .Values.imageTag }}
-          imagePullPolicy: Always
-          envFrom:
-            - configMapRef:
-                name: {{ .Values.appName }}
-          readinessProbe:
-            httpGet:
-              path: /health
-              port: "{{ .Values.service.port }}"
-            initialDelaySeconds: 30
-            periodSeconds: 5
-            timeoutSeconds: 2
-            failureThreshold: 3
-          livenessProbe:
-            httpGet:
-              path: /health
-              port: "{{ .Values.service.port }}"
-            initialDelaySeconds: 60
-            periodSeconds: 5
-            timeoutSeconds: 2
-            failureThreshold: 3
-          resources:
-            requests:
-              cpu: "250m"
-              memory: "512Mi"
-            limits:
-              cpu: "1"
-              memory: "2Gi"
-                    
+      - name: {{ .Values.appName }}
+        image: 533567530972.dkr.ecr.us-east-1.amazonaws.com/{{ .Values.appName }}:{{ .Values.imageTag }}
+        envFrom:
+        - configMapRef:
+            name: {{ .Values.appName }}
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: {{ .Values.service.port }}
+          initialDelaySeconds: 5
+          periodSeconds: 5
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: {{ .Values.service.port }}
+          initialDelaySeconds: 5
+          periodSeconds: 5
+        resources:
+          requests:
+            cpu: "250m"
+            memory: "512Mi"
+          limits:
+            cpu: "1"
+            memory: "2Gi"
