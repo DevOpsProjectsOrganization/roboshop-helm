@@ -4,7 +4,7 @@ kind: Deployment
 spec:
   replicas: 2
   selector:
-    matchLabels: |
+    matchLabels: 
 {{ include "app.labels" . | indent 6 }}
   template:
     metadata:
