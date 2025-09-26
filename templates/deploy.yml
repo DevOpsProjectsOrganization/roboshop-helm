@@ -1,6 +1,6 @@
 apiVersion: apps/v1
 kind: Deployment
-  {{- template "app.metadata" . }}
+{{- template "app.metadata" . }}
 spec:
   replicas: 2
   selector:
