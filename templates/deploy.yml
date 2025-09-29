@@ -1,10 +1,10 @@
 apiVersion: apps/v1
 kind: Deployment
-{{- template "app.metadata" . }}
+  {{- template "app.metadata" . }}
 spec:
   replicas: 2
   selector:
-    matchLabels: 
+    matchLabels:
 {{ include "app.labels" . | indent 6 }}
   template:
     metadata:
@@ -15,7 +15,7 @@ spec:
       - name: {{ .Values.appName }}
         image: 533567530972.dkr.ecr.us-east-1.amazonaws.com/{{ .Values.appName }}:{{ .Values.imageTag }}
         envFrom:
-          - configMapRef:
+          - secretRef:
               name: {{ .Values.appName }}
         readinessProbe:
           httpGet:
