@@ -17,7 +17,14 @@ spec:
           envFrom:
             - secretRef:
                 name: {{ .Values.appName }}
-          # readinessProbe:
+          resources:
+            requests:
+              cpu: "250m"
+              memory: "512Mi"
+            limits:
+              cpu: "1"
+              memory: "2Gi"
+          #readinessProbe:
           #   httpGet:
           #     path: /health
           #     port: {{ .Values.service.port }}
@@ -29,10 +36,3 @@ spec:
           #     port: {{ .Values.service.port }}
           #   initialDelaySeconds: 5
           #   periodSeconds: 5
-          resources:
-            requests:
-              cpu: "250m"
-              memory: "512Mi"
-            limits:
-              cpu: "1"
-              memory: "2Gi"
