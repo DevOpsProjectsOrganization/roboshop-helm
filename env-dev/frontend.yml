@@ -14,3 +14,11 @@ configMapData:
 service:
   type: LoadBalancer
   port : 80
+
+resources:
+  requests:
+    cpu: 300m
+    memory: 200Mi
+  limits:
+    cpu: 500m
+    memory: 400Mi
