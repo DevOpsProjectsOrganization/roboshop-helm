@@ -1,4 +1,3 @@
 schema:
   enabled : false
-  jobs: []
-imageTag: latest
+
