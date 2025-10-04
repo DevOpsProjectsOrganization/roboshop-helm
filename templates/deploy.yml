@@ -19,15 +19,15 @@ spec:
                 name: {{ .Values.appName }}
           readinessProbe:
             httpGet:
-              path: "/actuator/health"
+              path: "/health"
               port: {{ .Values.service.port }}
-            initialDelaySeconds: 40
+            initialDelaySeconds: 60
             periodSeconds: 10
           livenessProbe:
             httpGet:
-              path: "/actuator/health"
+              path: "/health"
               port: {{ .Values.service.port }}
-            initialDelaySeconds: 30
+            initialDelaySeconds: 60
             periodSeconds: 10
           resources:
             requests:
