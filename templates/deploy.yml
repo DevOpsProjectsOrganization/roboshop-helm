@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
   {{- template "app.metadata" . }}
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
 {{- include "app.labels" . | indent 6 }}
