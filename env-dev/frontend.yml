@@ -12,7 +12,7 @@ configMapData:
   PAYMENT_PORT: "8080"
 
 service:
-  type: LoadBalancer
+  type: ClusterIP
   port : 80
 
 resources:
